@@ -1,0 +1,20 @@
+import os
+file = open('sample.json')
+obj = file.readlines()
+failed_packages = []
+for i in obj:
+	if '==' in i:
+		s = i.replace(' ','')
+		s = s.replace(',','')
+		print(s)
+		installation_string = 'pip install --force-reinstall '+s
+		result = os.system(installation_string)
+		if result == 1:
+			failed_packages.append(s)
+if len(failed_packages) == 0:
+	print('installation successfull')
+else:
+	print()
+	print("failed packages list:**********************************************")
+	for i in failed_packages:
+		print(i)
