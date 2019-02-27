@@ -1,0 +1,11 @@
+def threeSumClosest(self, A, B):
+        r = 0
+        arr_size = len(A)
+        sum = B
+        for i in range( 0, arr_size-2): 
+            for j in range(i + 1, arr_size-1): 
+                for k in range(j + 1, arr_size): 
+                    if A[i] + A[j] + A[k] == sum: 
+                        r=A[i]+A[j]+A[k] 
+                        return r
+        return r
